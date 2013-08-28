@@ -4,6 +4,7 @@ function precmd()
     HOST='%{$fg[cyan]%}$(whoami)@$(hostname -s)%{$reset_color%}'
     DIR='%{$fg[red]%}%~%{$reset_color%}'
     RVM='%{$fg[yellow]%}$(rvm current)%{$reset_color%}'
+    DATE=' {%{$fg[green]%}'`date +%H:%M:%S`'%{$reset_color%}}'
 
     if git status &>/dev/null
     then
@@ -13,7 +14,7 @@ function precmd()
     fi
 
     PROMPT="
-$HOST:$DIR$GIT
+$HOST:$DIR$GIT$DATE
 %# "
 }
 
