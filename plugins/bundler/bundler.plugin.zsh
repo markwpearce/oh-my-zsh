@@ -83,18 +83,14 @@ _within-bundled-project() {
   false
 }
 
-<<<<<<< HEAD
 _bundle-includes() {
     bundle list | grep " $1 " &>/dev/null
 }
 
-_run-with-bundler() {
-  if _bundler-installed && _within-bundled-project && _bundle-includes $1; then
-    bundle exec $@
-=======
 _binstubbed() {
   [ -f "./bin/${1}" ]
 }
+
 
 _run-with-bundler() {
   if _bundler-installed && _within-bundled-project; then
@@ -103,7 +99,6 @@ _run-with-bundler() {
     else
       bundle exec $@
     fi
->>>>>>> upstream/master
   else
     $@
   fi
